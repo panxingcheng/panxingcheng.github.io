@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Kafka | Hello World</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="apple-touch-icon" href="/images/icons/icon-152x152.png">
+    <meta name="description" content="Study, starting with "Hello, World!".">
+    <meta name="theme-color" content="#3eaf7c">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hello World">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    
+    <link rel="preload" href="/assets/css/0.styles.fb6f48a0.css" as="style"><link rel="preload" href="/assets/js/app.75eef9bd.js" as="script"><link rel="preload" href="/assets/js/2.21f8d596.js" as="script"><link rel="preload" href="/assets/js/35.898ebed2.js" as="script"><link rel="preload" href="/assets/js/3.d5ece547.js" as="script"><link rel="prefetch" href="/assets/js/10.71bc8335.js"><link rel="prefetch" href="/assets/js/11.a5ba898e.js"><link rel="prefetch" href="/assets/js/12.433c2775.js"><link rel="prefetch" href="/assets/js/13.7eb0bb83.js"><link rel="prefetch" href="/assets/js/14.f94790b8.js"><link rel="prefetch" href="/assets/js/15.40af23c2.js"><link rel="prefetch" href="/assets/js/16.675630b9.js"><link rel="prefetch" href="/assets/js/17.ef69ed44.js"><link rel="prefetch" href="/assets/js/18.951f9ddc.js"><link rel="prefetch" href="/assets/js/19.f7b74fa4.js"><link rel="prefetch" href="/assets/js/20.082be24c.js"><link rel="prefetch" href="/assets/js/21.7b8301a3.js"><link rel="prefetch" href="/assets/js/22.ce80fbaf.js"><link rel="prefetch" href="/assets/js/23.c75defd5.js"><link rel="prefetch" href="/assets/js/24.d9218076.js"><link rel="prefetch" href="/assets/js/25.1e807338.js"><link rel="prefetch" href="/assets/js/26.1572ad5f.js"><link rel="prefetch" href="/assets/js/27.087b1532.js"><link rel="prefetch" href="/assets/js/28.30431ded.js"><link rel="prefetch" href="/assets/js/29.5eaf33b2.js"><link rel="prefetch" href="/assets/js/30.fd277774.js"><link rel="prefetch" href="/assets/js/31.851efea0.js"><link rel="prefetch" href="/assets/js/32.8583e02a.js"><link rel="prefetch" href="/assets/js/33.a79f55ed.js"><link rel="prefetch" href="/assets/js/34.f7c257b4.js"><link rel="prefetch" href="/assets/js/36.cee08c0c.js"><link rel="prefetch" href="/assets/js/37.7dfbbac6.js"><link rel="prefetch" href="/assets/js/38.6da7859e.js"><link rel="prefetch" href="/assets/js/39.077ff5de.js"><link rel="prefetch" href="/assets/js/4.49e28621.js"><link rel="prefetch" href="/assets/js/40.108f881a.js"><link rel="prefetch" href="/assets/js/41.253d7dae.js"><link rel="prefetch" href="/assets/js/42.0e8b5558.js"><link rel="prefetch" href="/assets/js/43.d66f08e8.js"><link rel="prefetch" href="/assets/js/44.b2fc1d0b.js"><link rel="prefetch" href="/assets/js/45.9a4e448e.js"><link rel="prefetch" href="/assets/js/46.368b5092.js"><link rel="prefetch" href="/assets/js/47.dec292e2.js"><link rel="prefetch" href="/assets/js/48.1e66cfb1.js"><link rel="prefetch" href="/assets/js/49.253a0d2c.js"><link rel="prefetch" href="/assets/js/5.9a61750e.js"><link rel="prefetch" href="/assets/js/50.3d3b1020.js"><link rel="prefetch" href="/assets/js/51.50155805.js"><link rel="prefetch" href="/assets/js/52.1068156c.js"><link rel="prefetch" href="/assets/js/53.3e704772.js"><link rel="prefetch" href="/assets/js/54.76e7c82c.js"><link rel="prefetch" href="/assets/js/55.c8b15bef.js"><link rel="prefetch" href="/assets/js/56.d6c59378.js"><link rel="prefetch" href="/assets/js/6.991f2325.js"><link rel="prefetch" href="/assets/js/7.62a8b38d.js"><link rel="prefetch" href="/assets/js/8.30c2b28c.js"><link rel="prefetch" href="/assets/js/9.c67ee168.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fb6f48a0.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/logo.png" alt="Hello World" class="logo"> <span class="site-name can-hide">Hello World</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Category" class="dropdown-title"><span class="title">Category</span> <span class="arrow down"></span></button> <button type="button" aria-label="Category" class="mobile-dropdown-title"><span class="title">Category</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/category/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/category/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/category/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/category/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/category/algorithm/" class="nav-link">
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/category/js/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/category/dotnet/" class="nav-link">
+  .NET
+</a></li></ul></div></div><div class="nav-item"><a href="/otherthing/" class="nav-link">
+  Other Thing
+</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><button type="button" aria-label="Category" class="dropdown-title"><span class="title">Category</span> <span class="arrow down"></span></button> <button type="button" aria-label="Category" class="mobile-dropdown-title"><span class="title">Category</span> <span class="arrow right"></span></button> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/category/java/" class="nav-link">
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/category/spring/" class="nav-link">
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/category/linux/" class="nav-link">
+  Linux
+</a></li><li class="dropdown-item"><!----> <a href="/category/docker/" class="nav-link">
+  Docker
+</a></li><li class="dropdown-item"><!----> <a href="/category/algorithm/" class="nav-link">
+  Algorithm
+</a></li><li class="dropdown-item"><!----> <a href="/category/js/" class="nav-link">
+  JavaScript
+</a></li><li class="dropdown-item"><!----> <a href="/category/dotnet/" class="nav-link">
+  .NET
+</a></li></ul></div></div><div class="nav-item"><a href="/otherthing/" class="nav-link">
+  Other Thing
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group depth-0"><p class="sidebar-heading open"><span>Kafka</span> <!----></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="kafka"><a href="#kafka" class="header-anchor">#</a> Kafka</h1> <p>Kafka 最初是 LinkedIn 的一个内部基础设施系统。可以认为 Kafka 是一个流平台：在这个平台上可以发布和订阅数据流，并把它们保存起来、进行处理。</p> <p>Kafka 有点像消息系统，允许发布和订阅消息流。从这点来看，它类似于 ActiveMQ、RabbitMQ 或 IBM 的 MQSeries 等产品。但 Kafka 与这些传统的消息系统仍然存在很多重要的不同点：首先，作为一个现代的分布式系统，Kafka 以集群的方式运行，可以自由伸缩，处理公司的所有应用程序。Kafka 集群并不是一组独立运行的 broker，而是一个可以灵活伸缩的中心平台，可以处理整个公司所有的数据流。其次，Kafka 可以按照你的要求存储数据，保存多久都可以。作为数据连接层，Kafka 提供了数据传递保证——可复制、持久化，保留多长时间完全可以由你来决定。最后，流式处理将数据处理的层次提升到了新高度。消息系统只会传递消息，而 Kafka 的流式处理能力让你只用很少的代码就能够动态地处理派生流和数据集。</p> <p>从另一个角度可以把 Kafka 看成实时版的 Hadoop。Hadoop 可以存储和定期处理大量的数据文件，而 Kafka 可以存储和持续处理大型的数据流。它们之间的最大不同体现在持续的低延迟处理和批处理之间的差异上。Hadoop 和大数据主要应用在数据分析上，而 Kafka 因其低延迟的特点更适合用在核心的业务应用上。业务事件时刻在发生，Kafka 能够及时对这些事件作出响应，基于 Kafka 构建的服务直接为业务运营提供支撑，提升用户体验。</p> <p>Kafka 与 ETL 工具或其他数据集成工具之间也可以进行一番比较。Kafka 和这些工具都擅长移动数据，但它们最大的不同在于 Kafka 颠覆了传统的思维。Kafka 并非只是把数据从一个系统拆解出来再塞进另一个系统，它其实是一个面向实时数据流的平台。也就是说，它不仅可以将现有的应用程序和数据系统连接起来，它还能用于加强这些触发相同数据流的应用。在某种程度上说，这些数据流是现代数字科技公司的核心，与他们的现金流一样重要。</p> <p>将上述的三个领域聚合在一起，将所有的数据流整合到一起，流平台因此变得极具吸引力。</p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">上次更新:</span> <span class="time">2020-12-20 23:33:01</span></div></footer> <!----> </main></div><div class="global-ui"><!----><!----><!----></div></div>
+    <script src="/assets/js/app.75eef9bd.js" defer></script><script src="/assets/js/2.21f8d596.js" defer></script><script src="/assets/js/35.898ebed2.js" defer></script><script src="/assets/js/3.d5ece547.js" defer></script>
+  </body>
+</html>
