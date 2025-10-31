@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百化分、开平方和求立方练习</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+        }
+
+        .game-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .question-card {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .question {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .instruction {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .answer-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .options-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .option-btn {
+            padding: 15px;
+            font-size: 1.2rem;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            background-color: white;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .option-btn:hover {
+            background-color: #f0f8ff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .option-btn.selected {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .option-btn.correct {
+            background-color: #2ecc71;
+            color: white;
+            border-color: #27ae60;
+        }
+
+        .option-btn.incorrect {
+            background-color: #e74c3c;
+            color: white;
+            border-color: #c0392b;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+
+        .next-btn {
+            background-color: #e74c3c;
+            color: white;
+        }
+
+        .next-btn:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+            display: none;
+        }
+
+        .correct {
+            background-color: rgba(46, 204, 113, 0.2);
+            color: #27ae60;
+            border: 2px solid #2ecc71;
+        }
+
+        .incorrect {
+            background-color: rgba(231, 76, 60, 0.2);
+            color: #c0392b;
+            border: 2px solid #e74c3c;
+        }
+
+        .progress {
+            width: 100%;
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            margin: 20px 0;
+            height: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #2ecc71, #3498db);
+            width: 0%;
+            transition: width 0.5s;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .stat-box {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .question {
+                font-size: 2rem;
+            }
+
+            .options-container {
+                grid-template-columns: 1fr;
+            }
+
+            .buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>百化分、开平方和求立方练习</h1>
+            <p class="subtitle">选择选项后立即判断，答对自动跳转，答错显示答案</p>
+        </header>
+
+        <div class="progress">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <div class="game-area">
+            <div class="question-card">
+                <div class="question" id="question">5%</div>
+                <p class="instruction">请选择对应的值（分数、平方或立方值）</p>
+            </div>
+
+            <div class="answer-form" id="answerForm">
+                <div class="options-container" id="optionsContainer">
+                    <!-- 选项将通过JavaScript动态生成 -->
+                </div>
+                <div class="buttons">
+                    <button type="button" class="btn next-btn" id="nextBtn" style="display:none;">下一题</button>
+                </div>
+            </div>
+
+            <div class="feedback" id="feedback"></div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-value" id="correctCount">0</div>
+                <div class="stat-label">答对</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value" id="wrongCount">0</div>
+                <div class="stat-label">答错</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value" id="totalCount">0</div>
+                <div class="stat-label">总题数</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 百化分题库数据
+        const bhfmathProblems = [
+            { question: "5%", answer: "1/20" },
+            { question: "5.3%", answer: "1/19" },
+            { question: "5.6%", answer: "1/18" },
+            { question: "5.9%", answer: "1/17" },
+            { question: "6.25%", answer: "1/16" },
+            { question: "6.7%", answer: "1/15" },
+            { question: "7.1%", answer: "1/14" },
+            { question: "7.7%", answer: "1/13" },
+            { question: "8.3%", answer: "1/12" },
+            { question: "9.1%", answer: "1/11" },
+            { question: "11.1%", answer: "1/9" },
+            { question: "12.5%", answer: "1/8" },
+            { question: "14.3%", answer: "1/7" },
+            { question: "16.7%", answer: "1/6" },
+            { question: "22.2%", answer: "2/9" },
+            { question: "25%", answer: "1/4" },
+            { question: "28.6%", answer: "2/7" },
+            { question: "30%", answer: "3/10" },
+            { question: "33.3%", answer: "1/3" },
+            { question: "37.5%", answer: "3/8" },
+            { question: "40%", answer: "3/5" },
+            { question: "42.9%", answer: "3/7" },
+            { question: "44.4%", answer: "4/9" },
+            { question: "50%", answer: "1/2" },
+            { question: "55.6%", answer: "5/9" },
+            { question: "57.1%", answer: "4/7" },
+            { question: "60%", answer: "3/5" },
+            { question: "62.5%", answer: "5/8" },
+            { question: "66.7%", answer: "2/3" },
+            { question: "71.4%", answer: "5/7" },
+            { question: "87.5%", answer: "7/8" },
+        ];
+        // 开平方题库数据
+        const kpfmathProblems = [
+            { question: "121", answer: "11^2" },
+            { question: "144", answer: "12^2" },
+            { question: "169", answer: "13^2" },
+            { question: "196", answer: "14^2" },
+            { question: "225", answer: "15^2" },
+            { question: "256", answer: "16^2" },
+            { question: "289", answer: "17^2" },
+            { question: "324", answer: "18^2" },
+            { question: "361", answer: "19^2" },
+        ];
+        // 求立方题库数据
+        const qlfmathProblems = [
+            { question: "2^3", answer: "8" },
+            { question: "3^3", answer: "27" },
+            { question: "4^3", answer: "64" },
+            { question: "5^3", answer: "125" },
+            { question: "6^3", answer: "216" },
+            { question: "7^3", answer: "343" },
+            { question: "8^3", answer: "512" },
+            { question: "9^3", answer: "729" },
+        ];
+
+        const mathProblems = [bhfmathProblems, kpfmathProblems, qlfmathProblems];
+        const mathProblemsSize = mathProblems.reduce((sum, subArray) => sum + subArray.length, 0);
+
+        // 游戏状态
+        let currentProblems = null;
+        let currentProblem = null;
+        let correctAnswers = 0;
+        let wrongAnswers = 0;
+        let totalQuestions = 0;
+        let usedProblems = [];
+        let selectedOption = null;
+        let currentOptions = [];
+        let isAnswered = false;
+
+        // DOM元素
+        const questionElement = document.getElementById('question');
+        const answerForm = document.getElementById('answerForm');
+        const optionsContainer = document.getElementById('optionsContainer');
+        const feedbackElement = document.getElementById('feedback');
+        const nextButton = document.getElementById('nextBtn');
+        const correctCountElement = document.getElementById('correctCount');
+        const wrongCountElement = document.getElementById('wrongCount');
+        const totalCountElement = document.getElementById('totalCount');
+        const progressBar = document.getElementById('progressBar');
+
+        // 初始化游戏
+        function initGame() {
+            selectRandomProblem();
+            updateStats();
+        }
+
+        // 选择随机问题
+        function selectRandomProblem() {
+            isAnswered = false;
+            
+            // 如果所有问题都已使用，重置已使用列表
+            if (usedProblems.length >= mathProblemsSize) {
+                usedProblems = [];
+            }
+
+            currentProblems =  mathProblems[Math.floor(Math.random() * mathProblems.length)];
+
+            // 过滤出未使用的问题
+            const availableProblems = currentProblems.filter(problem =>
+                !usedProblems.includes(problem.question)
+            );
+
+            // 随机选择一个
+            const randomIndex = Math.floor(Math.random() * availableProblems.length);
+            currentProblem = availableProblems[randomIndex];
+
+            // 添加到已使用列表
+            usedProblems.push(currentProblem.question);
+
+            // 生成选项
+            generateOptions();
+
+            // 更新UI
+            questionElement.textContent = currentProblem.question;
+            feedbackElement.style.display = 'none';
+            nextButton.style.display = 'none';
+
+            // 更新进度条
+            const progress = (usedProblems.length / mathProblemsSize) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // 生成选项
+        function generateOptions() {
+            // 清空选项容器
+            optionsContainer.innerHTML = '';
+            selectedOption = null;
+            currentOptions = [];
+
+            // 添加正确答案
+            currentOptions.push(currentProblem.answer);
+
+            // 生成3个干扰项
+            while (currentOptions.length < 4) {
+                // 随机选择一个其他问题的答案作为干扰项
+                const randomIndex = Math.floor(Math.random() * currentProblems.length);
+                const randomAnswer = currentProblems[randomIndex].answer;
+
+                // 确保干扰项与正确答案不同且不重复
+                if (randomAnswer !== currentProblem.answer && !currentOptions.includes(randomAnswer)) {
+                    currentOptions.push(randomAnswer);
+                }
+            }
+
+            // 随机打乱选项顺序
+            shuffleArray(currentOptions);
+
+            // 创建选项按钮
+            currentOptions.forEach((option, index) => {
+                const optionBtn = document.createElement('button');
+                optionBtn.type = 'button';
+                optionBtn.className = 'option-btn';
+                optionBtn.textContent = option;
+                optionBtn.dataset.value = option;
+
+                optionBtn.addEventListener('click', function () {
+                    // 如果已经回答过，忽略点击
+                    if (isAnswered) return;
+                    
+                    // 标记为已回答
+                    isAnswered = true;
+                    
+                    // 移除之前选中的选项
+                    document.querySelectorAll('.option-btn').forEach(btn => {
+                        btn.classList.remove('selected');
+                    });
+
+                    // 选中当前选项
+                    this.classList.add('selected');
+                    selectedOption = this.dataset.value;
+                    
+                    // 立即判断答案
+                    checkAnswer();
+                });
+
+                optionsContainer.appendChild(optionBtn);
+            });
+        }
+
+        // 随机打乱数组
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        // 检查答案
+        function checkAnswer() {
+            const isCorrect = selectedOption === currentProblem.answer;
+            
+            // 高亮显示正确和错误答案
+            highlightAnswers(isCorrect);
+            
+            if (isCorrect) {
+                showFeedback('恭喜！答对了！', true);
+                correctAnswers++;
+                totalQuestions++;
+                
+                // 正确时自动跳转到下一题（1秒后）
+                setTimeout(() => {
+                    selectRandomProblem();
+                }, 1000);
+            } else {
+                showFeedback(`很遗憾，正确答案是: ${currentProblem.answer}`, false);
+                wrongAnswers++;
+                totalQuestions++;
+                nextButton.style.display = 'inline-block';
+            }
+            
+            updateStats();
+            
+            // 禁用所有选项
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.disabled = true;
+            });
+        }
+
+        // 显示反馈
+        function showFeedback(message, isCorrect) {
+            feedbackElement.textContent = message;
+            feedbackElement.className = 'feedback ' + (isCorrect ? 'correct' : 'incorrect');
+            feedbackElement.style.display = 'block';
+        }
+
+        // 更新统计信息
+        function updateStats() {
+            correctCountElement.textContent = correctAnswers;
+            wrongCountElement.textContent = wrongAnswers;
+            totalCountElement.textContent = totalQuestions;
+        }
+
+        // 高亮显示正确和错误答案
+        function highlightAnswers(isCorrect) {
+            const options = document.querySelectorAll('.option-btn');
+            
+            options.forEach(option => {
+                if (option.dataset.value === currentProblem.answer) {
+                    option.classList.add('correct');
+                } else if (!isCorrect && option.dataset.value === selectedOption) {
+                    option.classList.add('incorrect');
+                }
+            });
+        }
+
+        // 下一题按钮
+        nextButton.addEventListener('click', function () {
+            selectRandomProblem();
+        });
+
+        // 初始化游戏
+        window.addEventListener('load', initGame);
+    </script>
+</body>
+
+</html>
