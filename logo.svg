@@ -1,0 +1,15 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4096 4096" width="48" height="48">
+	<title>helloworld_study</title>
+	<style>
+		.s0 { fill: #000000 } 
+		.s1 { fill: #ffffff } 
+	</style>
+	<path id="Background copy" fill-rule="evenodd" class="s0" d="m2772 1323.9l724.1 724.1-724.1 724.1-724.1-724.1z"/>
+	<path id="Background copy 2" fill-rule="evenodd" class="s1" d="m1324 2772.1l-724.1-724.1 724.1-724.1 724.1 724.1z"/>
+	<path id="形状 1 copy" fill-rule="evenodd" class="s0" d="m4096 0v4096h-1024v-4096z"/>
+	<path id="形状 1 copy 2" fill-rule="evenodd" class="s1" d="m1024 0v4096h-1024v-4096z"/>
+	<path id="形状 1 copy 3" fill-rule="evenodd" class="s1" d="m2048 2048c848.3 0 1536 687.7 1536 1536v512h-3072v-512c0-848.3 687.7-1536 1536-1536z"/>
+	<path id="形状 1 copy 4" fill-rule="evenodd" class="s0" d="m3584 0v512c0 848.3-687.7 1536-1536 1536-848.3 0-1536-687.7-1536-1536v-512z"/>
+	<path id="Background" fill-rule="evenodd" class="s1" d="m3072-0.1v512c0 565.6-458.5 1024-1024 1024-565.5 0-1024-458.4-1024-1024v-512z"/>
+	<path id="Layer 1" fill-rule="evenodd" class="s0" d="m2048 2560.1c565.5 0 1024 458.4 1024 1024v512h-2048v-512c0-565.6 458.5-1024 1024-1024z"/>
+</svg>
